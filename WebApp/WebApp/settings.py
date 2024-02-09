@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lnwau(rib(f5r-5-(@30)1_)_+(5+%9*33pp6=xv9_262+*x59'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 #ALLOWED_HOSTS = ['.vercel.app']
 ALLOWED_HOSTS = []
@@ -93,9 +93,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': '5A2g5geAe44FDfB1FD--c-52bf4egd4g',
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': '40799',
+        'PASSWORD': '-2gG*aE-gcB6CFE6fEfCc5B-6c*GE*Ge',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PORT': '22905',
     }
 }
 
