@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-lnwau(rib(f5r-5-(@30)1_)_+(5+%9*33pp6=xv9_262+*x59
 DEBUG = False
 
 #ALLOWED_HOSTS = ['.vercel.app']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
