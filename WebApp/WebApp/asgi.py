@@ -20,16 +20,16 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'WebApp.settings')
 #application = get_asgi_application()
 application = ProtocolTypeRouter({
     'https':get_asgi_application(),
-    'websocket':AuthMiddlewareStack(
-       URLRouter(
-           databaseAI.routing.websocket_urlpatterns
-       )
-    )
-    # "websocket": AllowedHostsOriginValidator(
-    #     AuthMiddlewareStack(
-    #         URLRouter([
-    #             databaseAI.routing.websocket_urlpatterns
-    #         ])
-    #     ),
-    # ),
+    # 'websocket':AuthMiddlewareStack(
+    #    URLRouter(
+    #        databaseAI.routing.websocket_urlpatterns
+    #    )
+    # )
+    "websocket": AllowedHostsOriginValidator(
+        AuthMiddlewareStack(
+            URLRouter(
+                databaseAI.routing.websocket_urlpatterns
+            )
+        ),
+    ),
 })
