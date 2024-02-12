@@ -1,1 +1,1 @@
-web: python manage.py collectstatic --noinput && daphne WebApp.wsgi 
+web: gunicorn && daphne WebApp.wsgi 
