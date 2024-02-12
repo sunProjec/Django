@@ -91,14 +91,14 @@ class ChatConsumer(WebsocketConsumer):
                             x_pre = x_pre/255
                             x_pre = np.reshape(x_pre ,(1,32,32,3))
                             prediction = model.predict(x_pre)
-                            print(prediction)
+                            
 
                             label = ['BOOK','STREET','FOOD','RUN','Fully','CAR','TELEVISION','LIKE','COMPUTER','GLASS']
                             #label = ['หนังสือ','ถนน','อาหาร','วิ่ง','เต็ม','รถ','ทีวี','ชอบ','คอมพิวเตอร์','แก้ว']
                             result = label[np.argmax(prediction)]
                             confidence = round(np.max(prediction) * 100, 2)
-                            print("Predicted real ", result)
-                            print('Confidence : ', confidence)
+                            #print("Predicted real ", result)
+                            #print('Confidence : ', confidence)
 
                             #last_prediction_time = current_time
                             result_P = result
@@ -106,7 +106,7 @@ class ChatConsumer(WebsocketConsumer):
                             # Draw result and confidence on the frame
                             cv2.putText(frame, f"Result: {result_P}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
                             cv2.putText(frame, f"Confidence: {confidence_P}%", (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
-                            print(result)
+                            #print(result)
                 
                             framergb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                             result = hands.process(framergb)

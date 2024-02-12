@@ -13,15 +13,23 @@ from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
 import databaseAI.routing
+from channels.security.websocket import AllowedHostsOriginValidator
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'WebApp.settings')
 
 #application = get_asgi_application()
 application = ProtocolTypeRouter({
-    'http':get_asgi_application(),
+    'https':get_asgi_application(),
     'websocket':AuthMiddlewareStack(
-        URLRouter(
-            databaseAI.routing.websocket_urlpatterns
-        )
+       URLRouter(
+           databaseAI.routing.websocket_urlpatterns
+       )
     )
+    # "websocket": AllowedHostsOriginValidator(
+    #     AuthMiddlewareStack(
+    #         URLRouter([
+    #             databaseAI.routing.websocket_urlpatterns
+    #         ])
+    #     ),
+    # ),
 })
