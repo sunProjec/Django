@@ -1,1 +1,1 @@
-web: daphne WebApp.wsgi
+web: python manage.py collectstatic --noinput && daphne WebApp.wsgi --log-file -
